@@ -26,8 +26,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Set warning levels
 if(MSVC)
   add_compile_options(/W4 /WX)
-else()
-  add_compile_options(-Wall -Wextra -pedantic -Werror)
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  add_compile_options(-Wall -Wextra -pedantic -Werror)  # Enable warnings for GCC/Clang
 endif()
 
 # Build the executable
