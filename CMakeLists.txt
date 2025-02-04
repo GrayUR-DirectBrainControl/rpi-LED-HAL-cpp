@@ -34,4 +34,4 @@ endif()
 add_executable(ledcontrol ${SOURCE})
 
 # Link Boost and other necessary libraries
-target_link_libraries(ledcontrol ${Boost_LIBRARIES} brainflow pigpio boost_system boost_thread ssl crypto pthread)
+#target_link_libraries(ledcontrol ${Boost_LIBRARIES} pigpio boost_system boost_thread ssl crypto pthread)
