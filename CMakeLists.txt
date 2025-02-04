@@ -30,8 +30,19 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   add_compile_options(-Wall -Wextra -pedantic -Werror)  # Enable warnings for GCC/Clang
 endif()
 
-# Build the executable
+
+# Detect Platform (PC vs Raspberry Pi) 
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm" OR CMAKE_HOST_SYSTEM_NAME MATCHES "Linux")
+    set(TARGET_PLATFORM "RaspberryPi")
+else()
+    set(TARGET_PLATFORM "DevelopmentPC")
+endif()
+
+# Build Executable
 add_executable(ledcontrol ${SOURCE})
 
-# Link Boost and other necessary libraries
-#target_link_libraries(ledcontrol ${Boost_LIBRARIES} pigpio boost_system boost_thread ssl crypto pthread)
+# Link pigpio and pthread only on Raspberry Pi
+if(TARGET_PLATFORM STREQUAL "RaspberryPi")
+    target_link_libraries(ledcontrol pigpio pthread)
+endif()
+
