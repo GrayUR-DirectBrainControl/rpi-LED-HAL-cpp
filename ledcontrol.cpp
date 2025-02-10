@@ -1,5 +1,10 @@
 #include <iostream>
-//#include "pigpio.h"  LED control
+#include "pigpio.h" 
+
+#include <stdlib.h>
+#include <string>
+#include "board_shim.h"
+
 
 int main()
 {
