@@ -2,7 +2,7 @@
 #include "pigpio.h" 
 #include <stdlib.h>
 
-#include "brainflow/src/board_controller.h"
+#include "brainflow/src/board_controller/inc/board_controller.h"
 
 int main() {
     int board_id = (int)BoardIds::SYNTHETIC_BOARD;	//Testing brainflow library with synthetic board
